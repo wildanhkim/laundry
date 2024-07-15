@@ -10,13 +10,9 @@ if(isset($_GET['id'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
     } else {
-        header("Location: tbpengambilan.php");
+        header("Location: ../index.php?x=pengambilan");
         exit();
     }
-} else {
-    // Jika ID Pengambilan tidak dikirimkan, redirect ke halaman utama
-    header("Location: tbpengambilan.php");
-    exit();
 }
 
 // Proses update data pengambilan
@@ -32,7 +28,7 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: tbpengambilan.php");
+        header("Location: ../index.php?x=pengambilan");
         exit();
     } else {
         echo "Gagal mengupdate data.";
@@ -89,7 +85,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="tbpelanggan.php" class="btn btn-secondary">Batal</a>
+                    <a href="../index.php?x=pengambilan" class="btn btn-secondary">Batal</a>
                 </div>
                 </form>
         </div>

@@ -10,13 +10,9 @@ if(isset($_GET['id'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
     } else {
-        header("Location: tbkaryawan.php");
+        header("Location: ../karyawan.php?x=karyawan");
         exit();
     }
-} else {
-    // Jika id tidak dikirimkan, redirect ke halaman utama
-    header("Location: tbkaryawan.php");
-    exit();
 }
 
 // Proses update data karyawan
@@ -30,7 +26,7 @@ if(isset($_GET['id'])) {
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: tbkaryawan.php");
+        header("Location: ../karyawan.php?x=karyawan");
         exit();
     } else {
         echo "Gagal mengupdate data.";
@@ -79,7 +75,7 @@ if(isset($_GET['id'])) {
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="tbkaryawan.php" class="btn btn-secondary">Batal</a>
+                    <a href="../karyawan.php?x=karyawan" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>

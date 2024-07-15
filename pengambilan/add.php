@@ -49,7 +49,7 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="tbpelanggan.php" class="btn btn-secondary">Batal</a>
+                    <a href="../index.php?x=pengambilan" class="btn btn-secondary">Batal</a>
                 </div>
                 </form>
         </div>
@@ -70,7 +70,7 @@
         $result = mysqli_query($mysqli, $query);
 
         if ($result) {
-            header("Location: tbpengambilan.php");
+            header("Location: ../index.php?x=pengambilan");
             exit();
         } else {
             echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";

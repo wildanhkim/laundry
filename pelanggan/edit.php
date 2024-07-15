@@ -10,14 +10,9 @@ if(isset($_GET['id'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
     } else {
-        header("Location: tbpelanggan.php");
+        header("Location: ../index.php?x=pelanggan");
         exit();
-    }
-} else {
-    // Jika NIM tidak dikirimkan, redirect ke halaman utama
-    header("Location: tbpelanggan.php");
-    exit();
-}
+    } }
 
 // Proses update data mahasiswa
     if(isset($_POST['submit'])){
@@ -31,7 +26,7 @@ if(isset($_GET['id'])) {
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: tbpelanggan.php");
+        header("Location: ../index.php?x=pelanggan");
         exit();
     } else {
         echo "Gagal mengupdate data.";
@@ -85,7 +80,7 @@ if(isset($_GET['id'])) {
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="tbpelanggan.php" class="btn btn-secondary">Batal</a>
+                    <a href="../index.php?x=pelanggan" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>

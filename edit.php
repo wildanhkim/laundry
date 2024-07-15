@@ -9,15 +9,11 @@ if(isset($_GET['id'])) {
     $result = mysqli_query($mysqli, $query);
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
-    } else {
-        header("Location: tbpesanan.php");
-        exit();
-    }
 } else {
     // Jika ID pesanan tidak dikirimkan, redirect ke halaman utama
-    header("Location: tbpesanan.php");
+    header("Location: ../index.php?x=pesanan");
     exit();
-}
+} }
 
 // Proses update data pesanan
 if(isset($_POST['submit'])){
@@ -35,7 +31,7 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: tbpesanan.php");
+        header("Location: ../index.php?x=pesanan");
         exit();
     } else {
         echo "<div class='alert alert-danger'>Gagal mengedit data.</div>";
@@ -100,7 +96,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="tbpesanan.php" class="btn btn-secondary">Batal</a>
+                    <a href="../index.php?x=pesanan" class="btn btn-secondary">Batal</a>
                 </div>
                 </form>
         </div>

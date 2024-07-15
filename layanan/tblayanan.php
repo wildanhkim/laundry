@@ -5,25 +5,19 @@ include_once("config.php");
 $result = mysqli_query($mysqli, "SELECT * FROM tblayanan");
 
 ?>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>layanan </title>
-    <!-- link CSS Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+<div class="col-lg-9 mt-2">
     <div class="container">
-        <h1>Data layanan Laundry</h1>
-        <!-- Tautan untuk tambah pengguna baru -->
-        <a href="add.php" class="btn btn-primary mb-3">Tambah Jenis Layanan</a> 
-        <a href="../index.php" class="btn btn-secondary mb-3">Kembali ke Dashboard</a>
 
-        <table class="table table-striped">
+
+<h1 class="text-center">Layanan Laundry</h1>
+        <div class="d-flex justify-content-between mb-3">
+            <a href="layanan/add.php" class="btn btn-primary">+ Layanan</a>
+        </div>
+
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped" style="width: 100%;">
             <thead class="thead-dark">
-                <tr>
+            <tr class="text-center">
                     <th>ID Layanan</th>
                     <th>Jenis Layanan</th>
                     <th>Harga</th>
@@ -38,22 +32,15 @@ $result = mysqli_query($mysqli, "SELECT * FROM tblayanan");
                     echo "<td>".$user_data['idLayanan']."</td>";
                     echo "<td>".$user_data['Jenis_Layanan']."</td>";
                     echo "<td>".$user_data['Harga']."</td>";
-                    // Tautan untuk edit dan delete dengan parameter nim
-                    echo "<td>
-                            <a href='edit.php?id=".$user_data['idLayanan']."' class='btn btn-success btn-sm mr-2'>Edit</a>
-                            <a href='delete.php?id=".$user_data['idLayanan']."' class='btn btn-danger btn-sm'>Delete</a>
+                    // Tautan untuk edit dan delete 
+                    echo "<td class='text-center'>
+                            <a href='layanan/edit.php?id=".$user_data['idLayanan']."' class='btn btn-success btn-sm mr-2'>Edit</a>
+                            <a href='layanan/delete.php?id=".$user_data['idLayanan']."' class='btn btn-danger btn-sm'>Delete</a>
                         </td>";
                     echo "</tr>";
                 }
                 ?>
             </tbody>
         </table>
-        <a href="../index.php" class="btn btn-secondary">Kembali ke Dashboard</a>
-    </div>
 
-    <!-- Tambahkan script Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    </div>

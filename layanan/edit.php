@@ -9,15 +9,12 @@ if(isset($_GET['id'])) {
     $result = mysqli_query($mysqli, $query);
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
-    } else {
-        header("Location: tblayanan.php");
-        exit();
-    }
+
 } else {
     // Jika NIM tidak dikirimkan, redirect ke halaman utama
-    header("Location: tblayanan.php");
+    header("Location: ../index.php?x=layanan");
     exit();
-}
+} }
 
 // Proses update data 
 if(isset($_POST['submit'])){
@@ -30,7 +27,7 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: tblayanan.php");
+        header("Location: ../index.php?x=layanan");
         exit();
     } else {
         echo "Gagal mengupdate data.";
@@ -75,7 +72,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="tblayanan.php" class="btn btn-secondary">Batal</a>
+                    <a href="../index.php?x=layanan" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>

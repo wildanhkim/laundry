@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    
 <div class="container my-5">
         <div class="form-container">
             <h2 class="text-center mb-4">Tambah Data pesanan</h2>
@@ -57,7 +58,7 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="tbpesanan.php" class="btn btn-secondary">Batal</a>
+                    <a href=" ../index.php?x=pesanan" class="btn btn-secondary">Batal</a>
                 </div>
                 </form>
         </div>
@@ -80,7 +81,7 @@
         $result = mysqli_query($mysqli, $query);
 
         if ($result) {
-            header("Location: tbpesanan.php");
+            header("Location: ../index.php?x=pesanan");
             exit();
         } else {
             echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";

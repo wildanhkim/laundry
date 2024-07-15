@@ -1,0 +1,24 @@
+:root {
+    --custom-bg-color: #248cbc;
+}
+
+.bg-primary {
+    background-color: var(--custom-bg-color) !important;
+}
+
+.nav-link.active {
+    background-color: var(--custom-bg-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--custom-bg-color) !important;
+}
+
+.dropdown-item:active {
+    background-color: var(--custom-bg-color) !important;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}

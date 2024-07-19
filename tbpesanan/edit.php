@@ -11,27 +11,28 @@ if(isset($_GET['id'])) {
         $data = mysqli_fetch_assoc($result);
 } else {
     // Jika ID pesanan tidak dikirimkan, redirect ke halaman utama
-    header("Location: ../index.php?x=pesanan");
+    header("Location: ../pesanan");
     exit();
 } }
 
 // Proses update data pesanan
 if(isset($_POST['submit'])){
-    $idpesanan = $_POST['txt_id'];
+
     $tglpesanan = $_POST['tgl_pesan'];
     $tglselesai = $_POST['tgl_selesai'];
     $idpelanggan = $_POST['txt_idpelanggan'];
     $idlayanan = $_POST['txt_idlayanan'];
     $berat = $_POST['txt_berat'];
     $totalbayar = $_POST['txt_total'];
+    $status = $_POST['txt_status'];
     $idkaryawan = $_POST['txt_idkaryawan'];
 
-    $query = "UPDATE tbpesanan SET idpesanan='$idpesanan', tglpesanan='$tglpesanan', 
-    tglselesai='$tglselesai', idpelanggan='$idpelanggan', idlayanan='$idlayanan', berat='$berat', totalbayar='$totalbayar', idkaryawan='$idkaryawan'";
+    $query = "UPDATE tbpesanan SET  tglpesanan='$tglpesanan', 
+    tglselesai='$tglselesai', idpelanggan='$idpelanggan', idlayanan='$idlayanan', berat='$berat', totalbayar='$totalbayar', status_pesanan ='$status', idkaryawan='$idkaryawan' WHERE idpesanan='$idpesanan' ";
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: ../index.php?x=pesanan");
+        header("Location: ../pesanan");
         exit();
     } else {
         echo "<div class='alert alert-danger'>Gagal mengedit data.</div>";
@@ -64,7 +65,7 @@ if(isset($_POST['submit'])){
             <form action="" method="post">
             <div class="form-group">
                     <label for="txt_id">ID pesanan</label>
-                    <input type="text" class="form-control" id="txt_id" name="txt_id" value="<?php echo $data['idPesanan'];?>" required>
+                    <input type="text" class="form-control" id="txt_id" name="txt_id" value="<?php echo $data['idPesanan'];?>" required disabled>
                 </div>
                 <div class="form-group">
                     <label for="tgl_tglambil">Tanggal Pesanan</label>
@@ -91,12 +92,20 @@ if(isset($_POST['submit'])){
                     <input type="text" class="form-control" id="txt_total" name="txt_total" value="<?php echo $data['TotalBayar'];?>" required>
                 </div>
                 <div class="form-group">
+                    <label for="txt_status">Status Pesanan:</label>
+                    <select id="status" name="txt_status" id="txt_status" class="form-control" value="<?php echo $data['Status_pesanan'];?>" required>
+                        <option value="proses">Proses</option>
+                        <option value="selesai">Selesai</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="txt_nama">ID Karyawan</label>
                     <input type="text" class="form-control" id="txt_idkaryawan" name="txt_idkaryawan" value="<?php echo $data['idKaryawan'];?>"  required>
                 </div>
+            
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="../index.php?x=pesanan" class="btn btn-secondary">Batal</a>
+                    <a href="../pesanan" class="btn btn-secondary">Batal</a>
                 </div>
                 </form>
         </div>

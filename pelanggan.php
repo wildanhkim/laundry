@@ -10,7 +10,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbpelanggan");
 
     <h1 class="text-center">Data Customer</h1>
         <div class="d-flex justify-content-between mb-3">
-            <a href="pelanggan/add.php" class="btn btn-primary">+ Customer</a>
+            <a href="tbpelanggan/add.php" class="btn btn-primary">+ Customer</a>
         </div>
 
         <div class="table-responsive">
@@ -37,8 +37,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbpelanggan");
                     echo "<td>".$user_data['Telepon']."</td>";
                     // Tautan untuk edit dan delete dengan parameter nim
                     echo "<td>
-                            <a href='pelanggan/edit.php?id=".$user_data['idPelanggan']."' class='btn btn-success btn-sm mr-2'>Edit</a>
-                            <a href='pelanggan/delete.php?id=".$user_data['idPelanggan']."' class='btn btn-danger btn-sm'>Delete</a>
+                            <a href='tbpelanggan/edit.php?id=".$user_data['idPelanggan']."' class='btn btn-success btn-sm mr-2'>Edit</a>
+                            <a href='tbpelanggan/delete.php?id=".$user_data['idPelanggan']."' class='btn btn-danger btn-sm'>Delete</a>
                         </td>";
                     echo "</tr>";
                 }

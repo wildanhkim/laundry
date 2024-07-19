@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Karyawan</title>
+    <title>Tambah Layanan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .form-container {
@@ -19,27 +19,23 @@
 <body>
     <div class="container my-5">
         <div class="form-container">
-            <h2 class="text-center mb-4">Tambah Data Karyawan</h2>
+            <h2 class="text-center mb-4">Tambah Data Layanan</h2>
             <form action="add.php" method="post">
                 <div class="form-group">
-                    <label for="txt_id">ID Karyawan</label>
+                    <label for="txt_id">ID Layanan</label>
                     <input type="text" class="form-control" id="txt_id" name="txt_id">
                 </div>
                 <div class="form-group">
-                    <label for="txt_nama">Nama</label>
-                    <input type="text" class="form-control" id="txt_nama" name="txt_nama" required>
+                    <label for="txt_nama">Jenis Layanan</label>
+                    <input type="text" class="form-control" id="txt_jenis" name="txt_jenis" required>
                 </div>
                 <div class="form-group">
-                    <label for="txt_alamat">Alamat</label>
-                    <textarea class="form-control" id="txt_alamat" name="txt_alamat" rows="3" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="txt_telepon">Telepon</label>
-                    <input type="text" class="form-control" id="txt_telepon" name="txt_telepon" placeholder="08..." required>
+                    <label for="txt_telepon">Harga</label>
+                    <input type="text" class="form-control" id="txt_harga" name="txt_harga" required>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="../index.php?x=karyawan" class="btn btn-secondary">Batal</a>
+                    <a href="../layanan" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>
@@ -49,17 +45,15 @@
     include_once("config.php");
 
     if(isset($_POST['submit'])){
-        $idkaryawan = $_POST['txt_id'];
-        $nama = $_POST['txt_nama'];
-        $alamat = $_POST['txt_alamat'];
-        $telepon = $_POST['txt_telepon'];
+        $idlayanan = $_POST['txt_id'];
+        $jenislayanan = $_POST['txt_jenis'];
+        $harga = $_POST['txt_harga'];
 
-        $query = "INSERT INTO tbkaryawan (idkaryawan, nama, alamat, telepon) VALUES 
-        ('$idkaryawan', '$nama', '$alamat', '$telepon')";
+        $query = "INSERT INTO tblayanan (idlayanan, jenis_layanan, Harga ) VALUES ('$idlayanan', '$jenislayanan', '$harga')";
         $result = mysqli_query($mysqli, $query);
 
         if($result){
-            header("Location: ../index.php?x=karyawan");
+            header("Location: ../layanan");
             exit();
         } else {
             echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";

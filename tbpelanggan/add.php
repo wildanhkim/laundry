@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Pengambilan</title>
+    <title>Tambah Data Customer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .form-container {
@@ -19,58 +19,55 @@
 </head>
 
 <body>
-<div class="container my-5">
+    <div class="container my-5">
         <div class="form-container">
-            <h2 class="text-center mb-4">Tambah Data Pengambilan</h2>
-            <form action="" method="post">
+            <h2 class="text-center mb-4">Tambah Data pelanggan</h2>
+            <form action="add.php" method="post">
                 <div class="form-group">
-                    <label for="txt_id">ID Pengambilan</label>
-                    <input type="text" class="form-control" id="txt_id" name="txt_id"  required>
+                    <label for="txt_id">ID pelanggan</label>
+                    <input type="text" class="form-control" id="txt_id" name="txt_id">
                 </div>
                 <div class="form-group">
                     <label for="txt_nama">Nama</label>
                     <input type="text" class="form-control" id="txt_nama" name="txt_nama" required>
                 </div>
                 <div class="form-group">
-                    <label for="txt_nama">ID Pesanan</label>
-                    <input type="text" class="form-control" id="txt_idpesanan" name="txt_idpesanan" required>
+                    <label for="radio_jk">Jenis Kelamin</label><br>
+                    <label><input type="radio" name="radio_jk" value="l" checked> Laki-laki</label>
+                    <label><input type="radio" name="radio_jk" value="p"> Perempuan</label>
                 </div>
                 <div class="form-group">
-                    <label for="tgl_tglambil">Tanggal Ambil</label>
-                    <input type="date" class="form-control" id="tgl_tglambil" name="tgl_tglambil" required>
+                    <label for="txt_alamat">Alamat</label>
+                    <textarea class="form-control" id="txt_alamat" name="txt_alamat" rows="3" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="txt_ket">Keterangan</label>
-                    <input type="text" class="form-control" id="txt_ket" name="txt_ket">
-                </div>
-                <div class="form-group">
-                    <label for="txt_nama">ID Karyawan</label>
-                    <input type="text" class="form-control" id="txt_idkaryawan" name="txt_idkaryawan" required>
+                    <label for="txt_telepon">Telepon</label>
+                    <input type="text" class="form-control" id="txt_telepon" name="txt_telepon" placeholder="08..."
+                        required>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="../index.php?x=pengambilan" class="btn btn-secondary">Batal</a>
+                    <a href="../pelanggan" class="btn btn-secondary">Batal</a>
                 </div>
-                </form>
+            </form>
         </div>
     </div>
 
     <?php
-    include_once("config.php");
+    include_once ("config.php");
 
     if (isset($_POST['submit'])) {
-        $idpengambilan = $_POST['txt_id'];
+        $idpelanggan = $_POST['txt_id'];
         $nama = $_POST['txt_nama'];
-        $idpesanan = $_POST['txt_idpesanan'];
-        $tglambil = $_POST['tgl_tglambil'];
-        $ket = $_POST['txt_ket'];
-        $idkaryawan = $_POST['txt_idkaryawan'];
+        $jk = $_POST['radio_jk'];
+        $alamat = $_POST['txt_alamat'];
+        $telepon = $_POST['txt_telepon'];
 
-        $query = "INSERT INTO tbpengambilan (idpengambilan, nama, idpesanan, tglAmbil, ket, idkaryawan) VALUES ('$idpengambilan', '$nama', '$idpesanan', '$tglambil', '$ket', '$idkaryawan')";
+        $query = "INSERT INTO tbpelanggan (idpelanggan, nama, alamat, telepon) VALUES ('$idpelanggan', '$nama', '$alamat', '$telepon')";
         $result = mysqli_query($mysqli, $query);
 
         if ($result) {
-            header("Location: ../index.php?x=pengambilan");
+            header("Location: ../pelanggan");
             exit();
         } else {
             echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";

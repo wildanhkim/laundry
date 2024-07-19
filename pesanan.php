@@ -10,7 +10,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbpesanan");
 
         <h1 class="text-center">Data Pesanan</h1>
         <div class="d-flex justify-content-between mb-3">
-            <a href="add.php" class="btn btn-primary">+ Pesanan Baru</a>
+            <a href="tbpesanan/add.php" class="btn btn-primary">+ Pesanan Baru</a>
         </div>
 
         <div class="table-responsive">
@@ -24,6 +24,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbpesanan");
                         <th>id layanan</th>
                         <th>Berat</th>
                         <th>Total Bayar</th>
+                        <th>Status</th>
                         <th>id karyawan</th>
                         <th>Opsi</th>
                     </tr>
@@ -40,10 +41,11 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbpesanan");
                         echo "<td>" . $user_data['idLayanan'] . "</td>";
                         echo "<td>" . $user_data['Berat'] . "</td>";
                         echo "<td>" . $user_data['TotalBayar'] . "</td>";
+                        echo "<td>" . $user_data['Status_pesanan'] . "</td>";
                         echo "<td>" . $user_data['idKaryawan'] . "</td>";
                         echo "<td>
-                                    <a href='edit.php?id=" . $user_data['idPesanan'] . "' class='btn btn-success btn-sm mr-2'>Edit</a>
-                                    <a href='delete.php?id=" . $user_data['idPesanan'] . "' class='btn btn-danger btn-sm'>Delete</a>
+                                    <a href='tbpesanan/edit.php?id=" . $user_data['idPesanan'] . "' class='btn btn-success btn-sm mr-2'>Edit</a>
+                                    <a href='tbpesanan/delete.php?id=" . $user_data['idPesanan'] . "' class='btn btn-danger btn-sm'>Delete</a>
                                 </td>";
                         echo "</tr>";
                     }

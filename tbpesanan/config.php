@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * using  mysqli_connect for database connection
  */

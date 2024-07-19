@@ -10,7 +10,7 @@ if(isset($_GET['id'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
     } else {
-        header("Location: ../index.php?x=pengambilan");
+        header("Location: ../pengambilan");
         exit();
     }
 }
@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: ../index.php?x=pengambilan");
+        header("Location: ../pengambilan");
         exit();
     } else {
         echo "Gagal mengupdate data.";
@@ -85,7 +85,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="../index.php?x=pengambilan" class="btn btn-secondary">Batal</a>
+                    <a href="..pengambilan" class="btn btn-secondary">Batal</a>
                 </div>
                 </form>
         </div>

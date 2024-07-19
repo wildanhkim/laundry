@@ -10,7 +10,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbpengambilan");
 
         <h1 class="text-center">Data pengambilan</h1>
         <div class="d-flex justify-content-between mb-3">
-            <a href="pengambilan/add.php" class="btn btn-primary">+ Data Pengambilan</a>
+            <a href="tbpengambilan/add.php" class="btn btn-primary">+ Data Pengambilan</a>
         </div>
 
         <div class="table-responsive">
@@ -39,8 +39,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbpengambilan");
                         echo "<td>" . $user_data['idKaryawan'] . "</td>";
                         // Tautan untuk edit dan delete 
                         echo "<td>
-                            <a href='pengambilan/edit.php?id=" . $user_data['idPengambilan'] . "' class='btn btn-success btn-sm mr-2'>Edit</a>
-                            <a href='pengambilan/delete.php?id=" . $user_data['idPengambilan'] . "' class='btn btn-danger btn-sm'>Delete</a>
+                            <a href='tbpengambilan/edit.php?id=" . $user_data['idPengambilan'] . "' class='btn btn-success btn-sm mr-2'>Edit</a>
+                            <a href='tbpengambilan/delete.php?id=" . $user_data['idPengambilan'] . "' class='btn btn-danger btn-sm'>Delete</a>
                         </td>";
                         echo "</tr>";
                     }

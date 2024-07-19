@@ -5,8 +5,7 @@
 <nav class="navbar navbar-expand bg-primary navbar-dark">
 
     <div class="container-lg">
-        <a class="navbar-brand" style="font-family: Comic Sans MS;" href="dashboard">
-            <img src="img/fix.png" alt="Logo" width="30" class="d-inline-block image">
+        <a class="navbar-brand" style="font-family: Comic Sans MS;" href=".">
             Barakah-Laundry
         </a>
 
@@ -24,13 +23,12 @@
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
                                     class="bi bi-person"></i>
                                 Profil</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-check"></i>
-                                B</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-code-slash"></i> J</a></li>
+                        <li><a class="dropdown-item" href="login"><i class="bi bi-box-arrow-in-right"></i>
+                                Login</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-power"></i> Logout</a></li>
+                        <li><a class="dropdown-item" href="logout"><i class="bi bi-power"></i> Logout</a></li>
                     </ul>
                 </li>
             </ul>

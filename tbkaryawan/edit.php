@@ -3,31 +3,30 @@ include_once("config.php");
 
 // Ambil data 
 if(isset($_GET['id'])) {
-    $idLayanan = $_GET['id'];
-    //untuk menampilkan data sesuai nim
-    $query = "SELECT * FROM tblayanan WHERE idLayanan='$idLayanan'";
+    $idKaryawan = $_GET['id'];
+    //untuk menampilkan data sesuai id
+    $query = "SELECT * FROM tbkaryawan WHERE idKaryawan='$idKaryawan'";
     $result = mysqli_query($mysqli, $query);
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
+    } else {
+        header("Location: ../karyawan");
+        exit();
+    }
+}
 
-} else {
-    // Jika NIM tidak dikirimkan, redirect ke halaman utama
-    header("Location: ../index.php?x=layanan");
-    exit();
-} }
+// Proses update data karyawan
+    if(isset($_POST['submit'])){
+        $idkaryawan = $_POST['txt_id'];
+        $nama = $_POST['txt_nama'];
+        $alamat = $_POST['txt_alamat'];
+        $telepon = $_POST['txt_telepon'];
 
-// Proses update data 
-if(isset($_POST['submit'])){
-    $idlayanan = $_POST['txt_id'];
-    $jenislayanan = $_POST['txt_jenis'];
-    $harga = $_POST['txt_harga'];
-
-    $query = "UPDATE tblayanan SET idLayanan='$idLayanan', Jenis_Layanan='$jenislayanan',Harga ='$harga'
-    WHERE idLayanan='$idLayanan'";
+    $query = "UPDATE tbkaryawan SET idKaryawan='$idkaryawan', Nama='$nama', Alamat='$alamat', Telepon='$telepon' WHERE idKaryawan='$idkaryawan'";
     $result = mysqli_query($mysqli, $query);
 
     if($result) {
-        header("Location: ../index.php?x=layanan");
+        header("Location: ../karyawan");
         exit();
     } else {
         echo "Gagal mengupdate data.";
@@ -56,23 +55,27 @@ if(isset($_POST['submit'])){
 <body>
     <div class="container my-5">
         <div class="form-container">
-            <h2 class="text-center mb-4">Edit Data Layanan</h2>
+            <h2 class="text-center mb-4">Edit Data Karyawan</h2>
             <form action="" method="post">
                 <div class="form-group">
-                    <label for="txt_id">ID Layanan</label>
-                    <input type="text" class="form-control" id="txt_id" name="txt_id" value="<?php echo $data['idLayanan'];?>">
+                    <label for="txt_id">ID Karyawan</label>
+                    <input type="text" class="form-control" id="txt_id" name="txt_id" value="<?php echo $data['idKaryawan'];?>">
                 </div>
                 <div class="form-group">
-                    <label for="txt_nama">Jenis Layanan</label>
-                    <input type="text" class="form-control" id="txt_jenis" name="txt_jenis" value="<?php echo $data['Jenis_Layanan'];?>" required>
+                    <label for="txt_nama">Nama</label>
+                    <input type="text" class="form-control" id="txt_nama" name="txt_nama" value="<?php echo $data['Nama'];?>" required>
                 </div>
                 <div class="form-group">
-                    <label for="txt_alamat">Harga</label>
-                    <textarea class="form-control" id="txt_harga" name="txt_harga" rows="3" required><?php echo $data['Harga'];?></textarea>
+                    <label for="txt_alamat">Alamat</label>
+                    <textarea class="form-control" id="txt_alamat" name="txt_alamat" rows="3" required><?php echo $data['Alamat'];?></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="txt_telepon">Telepon</label>
+                    <input type="text" class="form-control" id="txt_telepon" name="txt_telepon" value="<?php echo $data['Telepon'];?>" placeholder="08..." required>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="../index.php?x=layanan" class="btn btn-secondary">Batal</a>
+                    <a href="../karyawan" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>

@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
     $result = mysqli_query($mysqli, "DELETE FROM tbpesanan WHERE idpesanan=$idpesanan");
 
     if($result){
-        header("Location: ../index.php?x=pesanan"); // Redirect ke halaman utama setelah berhasil menghapus data
+        header("Location: ../pesanan"); // Redirect ke halaman utama setelah berhasil menghapus data
         exit();
     } else {
         echo "Gagal menghapus data.";

@@ -10,7 +10,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbkaryawan");
 
     <h1 class="text-center">Data Karyawan</h1>
         <div class="d-flex justify-content-between mb-3">
-            <a href="tbkaryawan/add.php" class="btn btn-primary">+ Karyawan</a>
+            <a href="addkaryawan" class="btn btn-primary">+ Karyawan</a>
         </div>
 
         <div class="table-responsive">

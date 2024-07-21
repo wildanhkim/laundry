@@ -35,9 +35,6 @@
                                         <a class="nav-link  <?php echo (isset($_GET['x']) && $_GET['x']=='pengambilan') ? 'active link-light' : 'link-dark' ; ?> " href="pengambilan"><i class="bi bi-bag-check"></i> Pengambilan</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link <?php echo (isset($_GET['x']) && $_GET['x']=='report') ? 'active link-light' : 'link-dark' ; ?> " href="report"></i><i class="bi bi-bar-chart-line"></i> Report</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link  <?php echo (isset($_GET['x']) && $_GET['x']=='karyawan') ? 'active link-light' : 'link-dark' ; ?> "  href="karyawan"><i class="bi bi-person-lock"></i> Data Karyawan</a>
                                 </ul>
                             </div>

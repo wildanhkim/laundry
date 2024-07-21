@@ -1,6 +1,6 @@
 <?php
-    ob_start();
-    include_once ("config.php");
+    
+    include "config.php";
 
     if(isset($_POST['submit'])) {
         $idpesanan = $_POST['txt_id'];
@@ -17,14 +17,14 @@
         $result = mysqli_query($mysqli, $query);
 
         if($result){
-            header ("Location: ../pesanan");
+            header ("Location: pesanan");
             exit();
         } else {
             
             echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";
         }
     }
-    ob_end_flush(); 
+     
     ?>
 
 <!DOCTYPE html>
@@ -52,7 +52,7 @@
     <div class="container my-5">
         <div class="form-container">
             <h2 class="text-center mb-4">Buat pesanan baru</h2>
-            <form action="add.php" method="post">
+            <form action="" method="post">
                 <div class="form-group">
                     <label for="txt_id">ID pesanan</label>
                     <input type="text" class="form-control" id="txt_id" name="txt_id">
@@ -107,7 +107,7 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="../pesanan" class="btn btn-secondary">Batal</a>
+                    <a href="pesanan" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>

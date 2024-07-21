@@ -20,7 +20,7 @@
     <div class="container my-5">
         <div class="form-container">
             <h2 class="text-center mb-4">Tambah Data Layanan</h2>
-            <form action="add.php" method="post">
+            <form action="" method="post">
                 <div class="form-group">
                     <label for="txt_id">ID Layanan</label>
                     <input type="text" class="form-control" id="txt_id" name="txt_id">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-success" name="submit">Simpan</button>
-                    <a href="../layanan" class="btn btn-secondary">Batal</a>
+                    <a href="layanan" class="btn btn-secondary">Batal</a>
                 </div>
             </form>
         </div>
@@ -53,7 +53,7 @@
         $result = mysqli_query($mysqli, $query);
 
         if($result){
-            header("Location: ../layanan");
+            header("Location: layanan");
             exit();
         } else {
             echo "<div class='alert alert-danger'>Gagal menambahkan data.</div>";

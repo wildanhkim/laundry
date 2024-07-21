@@ -3,9 +3,10 @@
 
     include  "config.php";
     $username = (isset($_POST['username'])) ? htmlentities($_POST['username']) : "" ;
-    $password = (isset($_POST['password'])) ? htmlentities($_POST['password'])  : "" ;
+    $password = (isset($_POST['password'])) ? md5(htmlentities($_POST['password']) )  : "" ;
+    
     if (!empty($_POST['submit'])) {
-        $query = mysqli_query($mysqli, "SELECT * from user where nama='$username' && password='$password'");
+        $query = mysqli_query($mysqli, "SELECT * from tbuser where nama='$username' &&  pass = '$password' ");
         $hasil = mysqli_fetch_array($query);
         if($hasil){
             $_SESSION['user'] = $username;

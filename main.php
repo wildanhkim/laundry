@@ -1,9 +1,11 @@
-<?php 
-    session_start();
-    if(empty($_SESSION['user'])) {
-        header('location:login');
-    }
-     
+<?php
+session_start();
+if (empty($_SESSION['user'])) {
+    header('location:login');
+}
+include "config.php";
+$query = mysqli_query($mysqli, "SELECT * from tbuser where nama='$_SESSION[user]' ");
+$hasil = mysqli_fetch_array($query);
 ?>
 
 <!doctype html>
@@ -22,19 +24,23 @@
 
     <style>
         .dashboard-page {
-            overflow-y: scroll; /* Tampilkan scroll bar vertikal */
+            overflow-y: scroll;
+            /* Tampilkan scroll bar vertikal */
         }
 
         .content-wrapper {
-            min-height: 100vh; /* Ketinggian minimal konten setinggi viewport */
-            padding-bottom: 80px; /* Optional: Padding di bagian bawah untuk memberikan ruang bagi footer */
+            min-height: 100vh;
+            /* Ketinggian minimal konten setinggi viewport */
+            padding-bottom: 80px;
+            /* Optional: Padding di bagian bawah untuk memberikan ruang bagi footer */
         }
 
         .footer {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #f8f9fa; /* Sesuaikan dengan warna latar belakang footer */
+            background-color: #f8f9fa;
+            /* Sesuaikan dengan warna latar belakang footer */
             padding: 10px 0;
             text-align: center;
         }
@@ -55,18 +61,18 @@
             <!-- end sidebar -->
 
             <!-- Content -->
-            <?php 
+            <?php
             include $page;
             ?>
-            </div>
-            <!--End Content-->
         </div>
+        <!--End Content-->
+    </div>
 
-        <!--Footer-->
-        <div class="text-center bg-light fixed-bottom py-1">
-            Copyright 2024 WildanHkm
-        </div>
-        <!--End Footer-->
+    <!--Footer-->
+    <div class="text-center bg-light fixed-bottom py-1">
+        Copyright 2024 WildanHkm
+    </div>
+    <!--End Footer-->
 
     </div>
 
@@ -76,7 +82,7 @@
         <div class="modal-dialog modal-fullscreen-md-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Profil</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Profil Barakah Laundry</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -84,30 +90,31 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email address</label>
                             <input type="email" class="form-cont    rol" id="exampleFormControlInput1"
-                                placeholder="name@example.com" value="wildanhkm04@gmail.com" disabled>
+                                placeholder="name@example.com" value="barakah@laundry.com" disabled>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                            <label for="exampleFormControlInput1" class="form-label">Moto</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Nama Anda">
+                                placeholder="Nama Anda" value="Laundry Cepat Sesuai Syari'at" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <input type="text" class="form-control" id="exampleFormControlTextarea1" value="Gp. Alue Awee" disabled></input>
                         </div>
-
+                        <label for="txt_nama">Jenis Layanan: </label>
                         <select class="form-select" aria-label="Default select example">
-                            <option selected>Hobi</option>
-                            <option value="1">ngaji</option>
-                            <option value="2">makan</option>
-                            <option value="3">Nonton</option>
-                            <option value="4">Tidur</option>
+                            <option value="001">001 - Cuci Setrika</option>
+                            <option value="002">002 - Cuci</option>
+                            <option value="003">003 - Setrika</option>
+                            <option value="004">004 - Cuci Khusus/ptg</option>
+                            <option value="005">005 - Express</option>
+                            <option value="006">006 - Gorden</option>
+                  
                         </select>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
